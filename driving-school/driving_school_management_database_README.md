@@ -23,12 +23,14 @@ The project manages a driving school's database, including information about cli
 - A text editor or integrated development environment (IDE)
 
 ### Installation
-1. Clone this file to your local machine:
+1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/corinnee/Database_Design_and_Management/driving_school_management_database.sql
+   git clone https://github.com/corinnee/Database_Design_and_Management.git
    ```
-2. Set up your SQL database environment.
-3. Execute the SQL code provided in the file to create tables and insert sample data.
+2. Navigate to the driving-school subdirectory within the cloned repository.
+3. Locate the driving_school_management_database.sql file.
+4. Set up your SQL database environment.
+5. Open the driving_school_management_database.sql file and execute the SQL code provided to create tables and insert sample data.
 
 ## Database Schema
 The database schema consists of the following tables:
@@ -42,7 +44,7 @@ The database schema consists of the following tables:
 - `Test`
 
 ## Sample Data
-Sample data for the driving school entities, such as centers, cars, staff, instructors, clients, lessons, and tests, has been provided in the SQL code.
+Sample data for the driving school entities, such as centres, cars, staff, instructors, clients, lessons, and tests, has been provided in the SQL code.
 
 ## Queries
 The code includes various SQL queries involving retrieving information about lessons, tests, staff, clients, and more.
