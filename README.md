@@ -3,4 +3,4 @@ Projects involving the creation and management of relational databases. Projects
 
 ## Projects
 - [Driving School Management Project](./driving-school/driving_school_management_database_README.md)
-  - SQL, database design, table creation, SQL queries.
+  - SQL, database management.
