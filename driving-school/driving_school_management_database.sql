@@ -200,7 +200,7 @@ WHERE 	Lesson.OnDate > '2020-12-06'
 
 
 
-----------  Further Queries (Not part of the assignment brief    ----------
+----------  Further Queries (Not part of the assignment brief)    ----------
 
 -- New Query 1: Find Clients with No Test Records
 -- This query retrieves clients who do not have any associated test records.
