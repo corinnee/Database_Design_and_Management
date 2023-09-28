@@ -135,20 +135,23 @@ INSERT INTO Test VALUES('2020-08-19','10:00:00','2','2009','2','Not Taken',null)
 ----------  Task 2       ----------
 --          Queries              --
              
--- 2.1
+-- 2.1 - Select Lessons Taught by Instructors on Cherry Street
+-- This query retrieves lessons taught by instructors whose address contains 'Cherry Street'.
 SELECT  Lesson.OnDate, Lesson.OnTime, Instructor.Surname
 FROM    Lesson 
 INNER JOIN Instructor ON Lesson.EmpID=Instructor.EmpID
 WHERE   Instructor.Address LIKE '%Cherry Street%';
 
--- 2.2
+-- 2.2 - Count of Test Status for Female Clients
+-- This query counts the test status for female clients and labels the count as "num".
 SELECT Test.Status, COUNT(*) AS "num"
 FROM Test
 INNER JOIN Client ON Test.ClientID=Client.ClientID
 WHERE Client.Gender='F'
 GROUP BY Status;
 
--- 2.3
+-- 2.3 - Union of AdminStaff and Instructor with Surname 'Joffries'
+-- This query combines the results of AdminStaff and Instructor tables for employees with the surname 'Joffries'.
 SELECT	EmpID, Forename, Surname
 FROM	AdminStaff
 WHERE	Surname='Joffries'
@@ -157,7 +160,8 @@ SELECT	EmpID, Forename, Surname
 FROM 	Instructor
 WHERE 	Surname='Joffries';
 
---	2.4
+--	2.4  Instructors Without Any Lessons
+-- This query retrieves instructors who have no associated lessons taught.
 SELECT 	School.Address, School.SchoolID, Instructor.Forename, Instructor.Surname
 FROM	Instructor
 INNER JOIN School ON Instructor.SchoolID=School.SchoolID
@@ -166,7 +170,8 @@ WHERE	NOT EXISTS (SELECT *
 					WHERE EmpID=Instructor.EmpID
 					);
 
--- 2.5
+-- 2.5 - Details of Clients, Tests, and Instructors in Whitstable Centre
+-- This query retrieves details of clients, tests, and instructors associated with the 'Whitstable' centre.
 SELECT	Centre.Name, Test.OnDate, Test.OnTime, Test.Status, Client.Forename, 
         Client.Surname, School.Address, Car.Model
 FROM 	Test
@@ -179,7 +184,8 @@ WHERE Centre.Name='Whitstable'
 ORDER BY Client.Surname ASC, Client.Forename ASC;
 
 
--- 2.6	Update Lesson Instructor	
+-- 2.6 - Update Lesson Instructor Based on Criteria
+-- This query updates the instructor for lessons taught by James Joffries on or after '2020-12-06' to Jim Adams.
 UPDATE Lesson
 INNER JOIN Instructor ON Lesson.EmpID = Instructor.EmpID
 SET Lesson.EmpID = (
@@ -190,7 +196,7 @@ SET Lesson.EmpID = (
 )
 WHERE 	Lesson.OnDate > '2020-12-06' 
 	AND Instructor.Surname = 'Joffries'
-	AND Instructor.Forename = 'James';					
+	AND Instructor.Forename = 'James';
 
 
 
