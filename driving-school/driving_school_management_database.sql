@@ -179,16 +179,18 @@ WHERE Centre.Name='Whitstable'
 ORDER BY Client.Surname ASC, Client.Forename ASC;
 
 
--- 2.6	Syntax error on INNER JOIN, couldn't fix it :(	
--- UPDATE	Lesson
--- INNER JOIN Instructor ON Lesson.EmpID=Instructor.EmpID
--- SET 	Lesson.EmpID = (SELECT 	EmpID
-						-- FROM 	Instructor
-						-- WHERE 	Surname='Adams'
-							-- AND Forename='Jim')
--- WHERE 	Lesson.OnDate > '12/06/2020' 
-	-- AND Instructor.Surname = 'Joffries'
-	-- AND	Instructor.Forename = 'James';					
+-- 2.6	Update Lesson Instructor	
+UPDATE Lesson
+INNER JOIN Instructor ON Lesson.EmpID = Instructor.EmpID
+SET Lesson.EmpID = (
+	SELECT 	EmpID
+	FROM 	Instructor
+	WHERE 	Surname = 'Adams'
+		AND Forename='Jim'
+)
+WHERE 	Lesson.OnDate > '2020-12-06' 
+	AND Instructor.Surname = 'Joffries'
+	AND Instructor.Forename = 'James';					
 
 
 
