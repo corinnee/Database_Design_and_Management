@@ -200,6 +200,31 @@ WHERE 	Lesson.OnDate > '2020-12-06'
 
 
 
+----------  Further Queries (Not part of the assignment brief    ----------
+
+-- New Query 1: Find Clients with No Test Records
+-- This query retrieves clients who do not have any associated test records.
+SELECT Client.ClientID, Client.Forename, Client.Surname
+FROM Client
+WHERE NOT EXISTS (
+    SELECT *
+    FROM Test
+    WHERE Test.ClientID = Client.ClientID
+);
+
+-- New Query 2: Calculate the Average Age of Clients
+-- This query calculates the average age of clients.
+SELECT AVG(DATEDIFF(CURRENT_DATE, Client.DoB) / 365) AS "Average Age"
+FROM Client;
+
+-- New Query 3: List Instructors with Multiple License Numbers
+-- This query lists instructors who have multiple license numbers.
+SELECT Instructor.EmpID, Instructor.Forename, Instructor.Surname
+FROM Instructor
+GROUP BY Instructor.EmpID, Instructor.Forename, Instructor.Surname
+HAVING COUNT(DISTINCT Instructor.LicenceNo) > 1;
+
+
 
 
 
