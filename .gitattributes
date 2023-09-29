@@ -1,1 +1,4 @@
 *.txt linguist-language=SQL
+*.txt linguist-language=sql
+*.sql linguist-language=SQL
+*.sql linguist-language=sql
